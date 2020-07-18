@@ -1,4 +1,4 @@
-body{
+body {
 	margin: 0;
 	background: white;
 	font-family: Arial;
@@ -6,12 +6,47 @@ body{
 
 header {
 	color: grey;
-	font-size: 40px;
+	font-size: 30px;
 	text-align: center;
-	margin: 0 auto;
+	margin-left: auto;
+    margin-right: auto;
 	padding: 0px;
 }
 
-form {
-	margin: 0 auto;
+ul {
+    list-style-type: none;
+}
+
+.list {
+	width: 400px;
+	margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.checkmark {
+	background-color: black;
+}
+
+.task {
+	display: flex;
+	color: black;
+	padding: 5px 0px;
+}
+
+.delete {
+    margin-left: auto;	
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 1px 5px;
+    font-size: 12px;
+}
+
+.user-input {
+	width: 100%;
+	padding: 5px 0px;
+	margin: 5px 0px;
 }

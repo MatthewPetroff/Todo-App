@@ -2,18 +2,33 @@
 <html>
   <head>
 	<title>Todo List</title>
-	<link rel="stylesheet" href="style.css">  	
+	<link rel='stylesheet' href='style.css'>  	
   </head>
   <body>
   	<header>
-  	  <h1>Todo List</h1>	
+  	  <h1>Tasks</h1>	
   	</header>
   	<main>
-  	  <ul id='list'></ul>		
-  	  <form>
-  	  	<input type="text" placeholder="Type your task here..."></input>
-  	  </form>	
+  	  <ul class='list'>
+  	  	<li>  
+  	  	  <div class='task'>
+  	  	    <input type='checkbox'>HTML/CSS/JS Practice<button class='delete'>x</button>
+  	  	  </div>
+  	  	</li>
+  	  	<li>  
+  	  	  <div class='task'>
+  	  	    <input type='checkbox'>MCPR - emails/Adwords/Referrals/MPCS<button class='delete'>x</button>
+  	  	  </div>
+  	  	</li> 
+  	  	<li>  
+  	  	  <div class='task'>
+  	  	    <input type='checkbox'>Trim beard<button class='delete'>x</button>
+  	  	  </div>
+  	  	</li>
+  	  	<li>  
+  	  	  <input class='user-input' type='text' placeholder="Add your task here...">
+  	  	</li>
+  	  </ul> 
   	</main>
-  	<footer></footer>
   </body>
 </html>
