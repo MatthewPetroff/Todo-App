@@ -15,14 +15,10 @@ header {
 
 ul {
     list-style-type: none;
-}
-
-.list {
-	width: 400px;
+    width: 400px;
 	margin-left: auto;
     margin-right: auto;
     padding: 0px;
-    margin-top: 20px;
     margin-bottom: 20px;
 }
 
@@ -34,6 +30,7 @@ ul {
 	display: flex;
 	color: black;
 	padding: 5px 0px;
+	/*text-decoration: line-through;*/
 }
 
 .delete {
