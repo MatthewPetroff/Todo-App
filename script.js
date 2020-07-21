@@ -1,44 +1,54 @@
 function addTask() {
     const userInput = document.getElementById('user-input').value;
 
-    //create list item
-    const line = document.createElement('li');
-    line.id = userInput;
+    if (userInput != '') {
+    	//create <li>
+	    const li = document.createElement('li');
+	    li.id = userInput;
 
-    const task = document.createElement('div');
-    task.className = 'task';
-    line.appendChild(task);
+	    //create <div> and append to <li>
+	    const div = document.createElement('div');
+	    div.className = 'task';
+	    li.appendChild(div);
+	    
+	    //create checkbox <input> and append to <div>
+		const input = document.createElement('input');
+	    input.type = 'checkbox';
+	    input.setAttribute('onclick', `toggle('${userInput}')`);
+	    div.appendChild(input);
+	    
+	    //create task text <h2> and append to <div>
+	    const h2 = document.createElement('h2');
+	    h2.innerHTML = userInput;
+	    div.appendChild(h2);
+		
+		//create delete button <button> and append to <div>
+	    const button = document.createElement('button');
+	    button.class = 'delete';
+	    button.setAttribute('onclick', `deleteTask('${userInput}')`);
+	    button.innerHTML = '<strong>X</strong>';
+	    button.className = 'delete';
+	    div.appendChild(button);
 
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.onclick = "toggle(userInput)";
-    task.appendChild(checkbox);
-
-    const text = document.createElement('h2');
-    text.innerHTML = userInput;
-    task.appendChild(text);
-
-    const deleteBtn = document.createElement('button');
-    deleteBtn.class = 'delete';
-    deleteBtn.onclick = "deleteTask(userInput)";
-    deleteBtn.innerHTML = 'x';
-    deleteBtn.className = 'delete';
-    task.appendChild(deleteBtn);
-
-    document.getElementById('list').appendChild(line);
+	    //append <li> to <ul> and clear text form
+	    document.getElementById('list').appendChild(li);
+	    document.getElementById('user-input').value = '';
+	}
 }
 
 function deleteTask(id) {
 	const list = document.getElementById('list');
-    const task = document.getElementById(id)
-    document.list.removeChild(task);
+	const task = document.getElementById(id);
+	list.removeChild(task);
 }
 
 function toggle(id) {
-	let status = document.getElementById(id).checked;
+	const task = document.getElementById(id);
+	const status = task.getElementsByTagName('div')[0].getElementsByTagName('input')[0].checked;
+
 	if (status === true) {
-		console.log("checked");
+		task.getElementsByTagName('div')[0].getElementsByTagName('h2')[0].style.textDecoration = 'line-through'; 
 	} else {
-		console.log("unchecked");
+		task.getElementsByTagName('div')[0].getElementsByTagName('h2')[0].style.textDecoration = 'none';
 	}
 }
