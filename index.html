@@ -2,33 +2,41 @@
 <html>
   <head>
 	<title>Todo List</title>
-	<link rel='stylesheet' href='style.css'>  	
+	<link rel='stylesheet' href='style.css'>  
+	<script src="script.js"></script>	
   </head>
   <body>
   	<header>
   	  <h1>Tasks</h1>	
   	</header>
   	<main>
-  	  <ul>
+  	  <ul id='list'>
   	  	<li>  
   	  	  <div class='task'>
-  	  	    <input type='checkbox'>Task A<button class='delete'>x</button>
+  	  	    <input type='checkbox' id='check1' onclick="toggle('check1')">
+  	  	    <h2>Task 1</h2>
+  	  	    <button class='delete' onclick="deleteTask()">x</button>
   	  	  </div>
   	  	</li>
   	  	<li>  
   	  	  <div class='task'>
-  	  	    <input type='checkbox'>Task B<button class='delete'>x</button>
+  	  	    <input type='checkbox' id='check2' onclick="toggle('check2')">
+  	  	    <h2>Task 2</h2>
+  	  	    <button class='delete' onclick="deleteTask()">x</button>
   	  	  </div>
   	  	</li> 
   	  	<li>  
   	  	  <div class='task'>
-  	  	    <input type='checkbox'>Task C<button class='delete'>x</button>
+  	  	    <input type='checkbox' id='check3' onclick="toggle('check3')">
+  	  	    <h2>Task 3</h2>
+  	  	    <button class='delete' onclick="deleteTask()">x</button>
   	  	  </div>
   	  	</li>
   	  </ul>
   	  <ul>
   	  	<li>  
-  	  	  <input class='user-input' type='text' placeholder="Type your task here...">
+  	  	  <input id='user-input' type='text' placeholder="Type your task here...">
+  	  	  <button id='add' onclick="addTask()">ADD</button>
   	  	</li>
   	  </ul>  
   	</main>
