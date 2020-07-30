@@ -1,54 +1,42 @@
-function addTask() {
-    const userInput = document.getElementById('user-input').value;
+document.getElementById("add").addEventListener("click", function(e) {
+	const userInput = document.getElementById('user-input').value;
 
-    if (userInput != '') {
-    	//create <li>
-	    const li = document.createElement('li');
-	    li.id = userInput;
+    if (userInput === '') {return};
 
-	    //create <div> and append to <li>
-	    const div = document.createElement('div');
-	    div.className = 'task';
-	    li.appendChild(div);
+    const li = document.createElement('li');
+    li.id = userInput;
+
+    const div = document.createElement('div');
+    div.className = 'task';
+    li.appendChild(div);
 	    
-	    //create checkbox <input> and append to <div>
-		const input = document.createElement('input');
-	    input.type = 'checkbox';
-	    input.setAttribute('onclick', `toggle('${userInput}')`);
-	    div.appendChild(input);
+	const input = document.createElement('input');
+    input.type = 'checkbox';
+
+    input.addEventListener('click', function(e) {
+		if (e.target.checked === true) {
+			e.target.nextElementSibling.style.textDecoration = 'line-through'; 
+		} else {
+			e.target.nextElementSibling.style.textDecoration = 'none';
+		}
+    });
+    div.appendChild(input);
 	    
-	    //create task text <h2> and append to <div>
-	    const h2 = document.createElement('h2');
-	    h2.innerHTML = userInput;
-	    div.appendChild(h2);
+    const h2 = document.createElement('h2');
+    h2.innerHTML = userInput;
+    div.appendChild(h2);
 		
-		//create delete button <button> and append to <div>
-	    const button = document.createElement('button');
-	    button.class = 'delete';
-	    button.setAttribute('onclick', `deleteTask('${userInput}')`);
-	    button.innerHTML = '<strong>X</strong>';
-	    button.className = 'delete';
-	    div.appendChild(button);
+    const button = document.createElement('button');
+    button.class = 'delete';
+    button.innerHTML = '<strong>X</strong>';
+    button.className = 'delete';
 
-	    //append <li> to <ul> and clear text form
-	    document.getElementById('list').appendChild(li);
-	    document.getElementById('user-input').value = '';
-	}
-}
+    button.addEventListener('click', function(e) {
+    	const list = document.getElementById('list');
+		list.removeChild(e.target.parentElement.parentElement.parentElement);
+    });
+    div.appendChild(button);
 
-function deleteTask(id) {
-	const list = document.getElementById('list');
-	const task = document.getElementById(id);
-	list.removeChild(task);
-}
-
-function toggle(id) {
-	const task = document.getElementById(id);
-	const status = task.getElementsByTagName('div')[0].getElementsByTagName('input')[0].checked;
-
-	if (status === true) {
-		task.getElementsByTagName('div')[0].getElementsByTagName('h2')[0].style.textDecoration = 'line-through'; 
-	} else {
-		task.getElementsByTagName('div')[0].getElementsByTagName('h2')[0].style.textDecoration = 'none';
-	}
-}
+    document.getElementById('list').appendChild(li);
+	document.getElementById('user-input').value = '';
+});

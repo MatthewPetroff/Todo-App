@@ -3,23 +3,19 @@
   <head>
 	<title>Todo List</title>
 	<link rel='stylesheet' href='style.css'>  
-	<script src="script.js"></script>	
   </head>
   <body>
   	<header>
   	  <h1>Tasks</h1>	
   	</header>
   	<main>
+      <div class='input'> 
+        <input id='user-input' type='text' placeholder="Type your task here...">
+        <button id='add'>ADD</button>
+      </div> 
   	  <ul id='list'>
-  	  </ul>
-  	  <ul>
-  	  	<li>  
-  	  	  <div class='input'>	
-  	  	    <input id='user-input' type='text' placeholder="Type your task here...">
-  	  	    <button id='add' onclick="addTask()">ADD</button>
-  	  	  </div>  
-  	  	</li>
   	  </ul>  
   	</main>
+    <script src="script.js"></script> 
   </body>
 </html>
